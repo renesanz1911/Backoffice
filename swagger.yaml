@@ -27,6 +27,29 @@ paths:
           description: Pet not found
         '405':
           description: Validation exception
+    post:
+      tags:
+        - post
+      summary: Add a new post
+      description: Add a new post to posts
+      operationId: addPost
+      requestBody:
+        description: Create a new post
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostCreateRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostResponse'
+        '405':
+          description: Invalid input
+
 
   /post/{postId}:
     get:
@@ -53,7 +76,7 @@ paths:
         '400':
           description: Invalid ID supplied
         '404':
-          description: Pet not found
+          description: post not found
         '405':
           description: Validation exception
     put:
@@ -65,7 +88,7 @@ paths:
       parameters:
         - name: postId
           in: path
-          description: ID of pet to return
+          description: ID of post to return
           required: true
           schema:
             type: string
@@ -75,7 +98,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PostRequest'
+              $ref: '#/components/schemas/PostUpdateRequest'
         required: true
       responses:
         '200':
@@ -90,10 +113,31 @@ paths:
           description: Post not found
         '405':
           description: Validation exception
+    delete:
+      tags:
+        - post
+      summary: Deletes a post
+      description: delete a post by Id
+      operationId: deletePost
+      parameters:
+        - name: postId
+          in: path
+          description: Post id to delete
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Post deleted successfully
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Post not found
 
 components:
   schemas:
-    PostRequest:
+    PostUpdateRequest:
       type: object
       properties:
         title:
@@ -114,6 +158,33 @@ components:
           type: string
           format: base64
         updatedBy:
+          type: string
+          example: creator
+        publihsed:
+          type: boolean
+        deleted:
+          type: boolean
+    PostCreateRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          example: este es el titulo del post
+        summary:
+          type: string
+          example: este es el reumen del post
+        tags:
+          type: array
+          items:
+            type: string
+          example: [tag1, tag2]
+        content:
+          type: string
+          example: contenido del post
+        picture:
+          type: string
+          format: base64
+        createdBy:
           type: string
           example: creator
         publihsed:
