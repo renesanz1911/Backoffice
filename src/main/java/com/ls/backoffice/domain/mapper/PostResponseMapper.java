@@ -24,6 +24,6 @@ public class PostResponseMapper {
     public List<PostResponse> apply(List<Post> postList){
         return postList.stream()
                 .map(this::apply)
-                .collect(Collectors.toList());
+                .toList();
     }
 }
