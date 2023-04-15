@@ -34,7 +34,5 @@ public class Post {
     private String updatedBy;
     private LocalDateTime updatedAt;
     private LocalDateTime publishedAt;
-    private Boolean delete;
-
-
+    private Boolean deleted;
 }
