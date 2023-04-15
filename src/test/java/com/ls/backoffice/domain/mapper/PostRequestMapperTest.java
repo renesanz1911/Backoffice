@@ -2,17 +2,15 @@ package com.ls.backoffice.domain.mapper;
 
 import com.ls.backoffice.controller.request.PostRequest;
 import com.ls.backoffice.domain.model.Post;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@RunWith(MockitoJUnitRunner.class)
-public class PostRequestMapperTest {
-    @InjectMocks
-    public PostRequestMapper postRequestMapper;
+class PostRequestMapperTest {
+
+    PostRequestMapper postRequestMapper;
     PostRequest postRequest = PostRequest.builder()
             .title("title")
             .summary("summary")
@@ -36,10 +34,14 @@ public class PostRequestMapperTest {
             .deleted(false)
             .build();
 
-    @Test
-    public void testApply() {
-        Post result = postRequestMapper.apply(postRequest);
-        assertEquals(expected, result);
+    @BeforeEach
+    void setUp() {
+        postRequestMapper = new PostRequestMapper();
     }
 
+    @Test
+    void apply() {
+        Post result = postRequestMapper.apply(postRequest);
+        assertTrue(EqualsBuilder.reflectionEquals(expected, result));
+    }
 }
