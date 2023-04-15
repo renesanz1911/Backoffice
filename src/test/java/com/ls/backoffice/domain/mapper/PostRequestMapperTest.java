@@ -40,7 +40,6 @@ public class PostRequestMapperTest {
     public void testApply() {
         Post result = postRequestMapper.apply(postRequest);
         assertEquals(expected, result);
-        assertEquals(1, 2);
     }
 
 }
