@@ -1,0 +1,24 @@
+server:
+  port: ${APPLICATION_PORT:8085}
+---
+spring:
+  application:
+    name: backoffice
+  datasource:
+    url: jdbc:mysql://localhost:3306/posts?useUnicode=true&characterEncoding=utf8&useSSL=true
+    username: root
+    password:
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    generate-ddl: false
+    hibernate.ddl-auto: none
+
+logging:
+  level:
+    org.springframework: ERROR
+    com.mkyong: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+    file: "%d %p %c{1.} [%t] %m%n"
