@@ -5,12 +5,15 @@ import com.ls.backoffice.domain.model.Post;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Component
 public class PostResponseMapper {
     public PostResponse apply(Post post){
-        return PostResponse.builder()
+        return Objects.isNull(post) ?
+                null :
+                PostResponse.builder()
                 .postId(post.getPostId())
                 .title(post.getTitle())
                 .summary(post.getSummary())
