@@ -4,10 +4,17 @@ import com.ls.backoffice.controller.request.PostRequest;
 import com.ls.backoffice.controller.response.PostResponse;
 import com.ls.backoffice.domain.mapper.PostRequestMapper;
 import com.ls.backoffice.domain.mapper.PostResponseMapper;
-import com.ls.backoffice.domain.model.Post;
 import com.ls.backoffice.service.IPostService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 import java.util.List;
 
