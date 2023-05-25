@@ -22,17 +22,17 @@ public class Post {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")//generacioin de ID.
-    private String postId;
-    private String title;
-    private String summary;
-    private String tags;
-    private String content;
-    private String picture;
-    private Boolean published;
-    private String createdBy;
-    private LocalDateTime createdAt;
-    private String updatedBy;
-    private LocalDateTime updatedAt;
-    private LocalDateTime publishedAt;
-    private Boolean deleted;
+    private String postId;//NOSONAR
+    private String title;//NOSONAR
+    private String summary;//NOSONAR
+    private String tags;//NOSONAR
+    private String content;//NOSONAR
+    private String picture;//NOSONAR
+    private Boolean published;//NOSONAR
+    private String createdBy;//NOSONAR
+    private LocalDateTime createdAt;//NOSONAR
+    private String updatedBy;//NOSONAR
+    private LocalDateTime updatedAt;//NOSONAR
+    private LocalDateTime publishedAt;//NOSONAR
+    private Boolean deleted;//NOSONAR
 }

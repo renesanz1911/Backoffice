@@ -43,13 +43,7 @@ public class PostsController {
     }
     @PutMapping("/{postId}")
     public PostResponse updatePost(@PathVariable String postId, @RequestBody PostRequest request){
-        return postResponseMapper.apply(
-                postService.updatePost(
-                        postRequestMapper.apply(
-                                request,postId
-                        )
-                )
-        );
+        return postResponseMapper.apply(postService.updatePost(postRequestMapper.apply(request,postId)));
     }
     @PostMapping
     public PostResponse createPost(@RequestBody PostRequest request){

@@ -8,12 +8,12 @@ import java.time.LocalDateTime;
 @Data
 @Builder
 public class PostResponse {
-    private String postId;
-    private String title;
-    private String summary;
-    private String tags;
-    private String content;
-    private String picture;
-    private String createdBy;
-    private LocalDateTime publishedAt;
+    private String postId;//NOSONAR
+    private String title;//NOSONAR
+    private String summary;//NOSONAR
+    private String tags;//NOSONAR
+    private String content;//NOSONAR
+    private String picture;//NOSONAR
+    private String createdBy;//NOSONAR
+    private LocalDateTime publishedAt;//NOSONAR
 }

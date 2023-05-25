@@ -12,10 +12,12 @@ import java.util.Optional;
 public class PostRequestMapper {
     public Post apply(PostRequest postRequest) {
         return Post.builder()
-                .title(Optional.ofNullable(postRequest.getTitle()).orElseThrow(()->new MissingRequiredFieldException("El campo titulo es obligatorio", "title")))
+                .title(Optional.ofNullable(postRequest.getTitle())
+                        .orElseThrow(()->new MissingRequiredFieldException("El campo titulo es obligatorio", "title")))
                 .summary(postRequest.getSummary())
                 .tags(postRequest.getTags())
-                .content(Optional.ofNullable(postRequest.getContent()).orElseThrow(()->new MissingRequiredFieldException("El campo contenido es obligatorio", "content")))
+                .content(Optional.ofNullable(postRequest.getContent())
+                        .orElseThrow(()->new MissingRequiredFieldException("El campo contenido es obligatorio", "content")))
                 .picture(postRequest.getPicture())
                 .published(postRequest.getPublished())
                 .createdBy(postRequest.getCreatedBy())
